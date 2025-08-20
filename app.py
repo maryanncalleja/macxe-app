@@ -11,14 +11,14 @@ import requests
 import pandas as pd
 import json
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
 # Xero app credentials
-CLIENT_ID = '93B4125E75714BCCBB2B3CAB4E5AC7CF'
-CLIENT_SECRET = 'm_2kdSW-3SkAzHYaIvPt8yhzSEkVk8myxfhIVrnAgzkBD9Za'
-#REDIRECT_URI = 'http://localhost:5000/callback'
-REDIRECT_URI = 'https://xero-flask-app.onrender.com/callback'
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+REDIRECT_URI = os.getenv("REDIRECT_URI", "http://localhost:5000/callback")
 SCOPES = 'openid profile email accounting.transactions offline_access'
 
 # Globals to store tokens & tenant_id 

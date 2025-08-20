@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: xero-flask-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: CLIENT_ID
+        value: 93B4125E75714BCCBB2B3CAB4E5AC7CF
+      - key: CLIENT_SECRET
+        value: m_2kdSW-3SkAzHYaIvPt8yhzSEkVk8myxfhIVrnAgzkBD9Za
+      - key: REDIRECT_URI
+        value: https://your-app-name.onrender.com/callback
+
